@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		889DBD62255C0AD600EAFD3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD61255C0AD600EAFD3B /* AppDelegate.swift */; };
 		889DBD64255C0AD600EAFD3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD63255C0AD600EAFD3B /* SceneDelegate.swift */; };
-		889DBD66255C0AD600EAFD3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD65255C0AD600EAFD3B /* ViewController.swift */; };
 		889DBD69255C0AD600EAFD3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889DBD67255C0AD600EAFD3B /* Main.storyboard */; };
 		889DBD6B255C0AD700EAFD3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889DBD6A255C0AD700EAFD3B /* Assets.xcassets */; };
 		889DBD6E255C0AD700EAFD3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889DBD6C255C0AD700EAFD3B /* LaunchScreen.storyboard */; };
+		889DBD79255C0BA500EAFD3B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD78255C0BA500EAFD3B /* MainViewController.swift */; };
+		889DBD7C255C163600EAFD3B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD7B255C163600EAFD3B /* Note.swift */; };
+		889DBD84255C19F100EAFD3B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD83255C19F100EAFD3B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		889DBD5E255C0AD600EAFD3B /* NotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889DBD61255C0AD600EAFD3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		889DBD63255C0AD600EAFD3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		889DBD65255C0AD600EAFD3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		889DBD68255C0AD600EAFD3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		889DBD6A255C0AD700EAFD3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		889DBD6D255C0AD700EAFD3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		889DBD6F255C0AD700EAFD3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		889DBD78255C0BA500EAFD3B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		889DBD7B255C163600EAFD3B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		889DBD83255C19F100EAFD3B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,33 @@
 		889DBD60255C0AD600EAFD3B /* NotesApp */ = {
 			isa = PBXGroup;
 			children = (
+				889DBD7E255C16C300EAFD3B /* Model */,
+				889DBD80255C16CD00EAFD3B /* Controller */,
+				889DBD6A255C0AD700EAFD3B /* Assets.xcassets */,
+				889DBD67255C0AD600EAFD3B /* Main.storyboard */,
+				889DBD6F255C0AD700EAFD3B /* Info.plist */,
+				889DBD6C255C0AD700EAFD3B /* LaunchScreen.storyboard */,
 				889DBD61255C0AD600EAFD3B /* AppDelegate.swift */,
 				889DBD63255C0AD600EAFD3B /* SceneDelegate.swift */,
-				889DBD65255C0AD600EAFD3B /* ViewController.swift */,
-				889DBD67255C0AD600EAFD3B /* Main.storyboard */,
-				889DBD6A255C0AD700EAFD3B /* Assets.xcassets */,
-				889DBD6C255C0AD700EAFD3B /* LaunchScreen.storyboard */,
-				889DBD6F255C0AD700EAFD3B /* Info.plist */,
 			);
 			path = NotesApp;
+			sourceTree = "<group>";
+		};
+		889DBD7E255C16C300EAFD3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				889DBD7B255C163600EAFD3B /* Note.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		889DBD80255C16CD00EAFD3B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				889DBD78255C0BA500EAFD3B /* MainViewController.swift */,
+				889DBD83255C19F100EAFD3B /* DetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				889DBD66255C0AD600EAFD3B /* ViewController.swift in Sources */,
+				889DBD84255C19F100EAFD3B /* DetailViewController.swift in Sources */,
+				889DBD79255C0BA500EAFD3B /* MainViewController.swift in Sources */,
 				889DBD62255C0AD600EAFD3B /* AppDelegate.swift in Sources */,
 				889DBD64255C0AD600EAFD3B /* SceneDelegate.swift in Sources */,
+				889DBD7C255C163600EAFD3B /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X73SB6LVU;
 				INFOPLIST_FILE = NotesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +321,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = BairNadtsalov.NotesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6X73SB6LVU;
 				INFOPLIST_FILE = NotesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +341,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = BairNadtsalov.NotesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
