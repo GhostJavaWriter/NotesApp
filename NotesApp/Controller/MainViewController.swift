@@ -9,15 +9,23 @@ import UIKit
 
 class MainViewController: UITableViewController {
     
-    var notes = [Note]()
+    lazy var notes: [Note] = {
+        let notes = [Note]()
+        return notes
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-        
+
         configureNavigationController()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        navigationController?.isToolbarHidden = false
     }
     
     // MARK: - Screen view configirurations
@@ -57,15 +65,23 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel?.text = notes[indexPath.row].title
-        cell.detailTextLabel?.text = notes[indexPath.row].body
-
+        let title = notes[indexPath.row].title
+        let text = notes[indexPath.row].body
+        cell.textLabel?.text = title
+        cell.detailTextLabel?.text = text
+        cell.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        
         return cell
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     /*
@@ -98,6 +114,7 @@ class MainViewController: UITableViewController {
     @objc func addNote() {
         
         let vc = DetailViewController()
+        vc.noteSenderDelegate = self
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -108,4 +125,14 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
 
+}
+
+extension MainViewController: NoteSenderDelegate {
+    
+    func updateNote(note: Note) {
+
+        notes.append(note)
+        tableView.reloadData()
+    }
+    
 }
