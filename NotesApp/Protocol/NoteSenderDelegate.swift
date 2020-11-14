@@ -9,5 +9,7 @@ import Foundation
 
 protocol NoteSenderDelegate: class {
     
-    func updateNote(note: Note)
+    func newNote(note: Note)
+    
+    func updateNote(note: Note, at index: Int)
 }

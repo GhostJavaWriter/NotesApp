@@ -16,6 +16,7 @@
 		889DBD7C255C163600EAFD3B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD7B255C163600EAFD3B /* Note.swift */; };
 		889DBD84255C19F100EAFD3B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD83255C19F100EAFD3B /* DetailViewController.swift */; };
 		889DBD88255CCE9600EAFD3B /* NoteSenderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD87255CCE9600EAFD3B /* NoteSenderDelegate.swift */; };
+		889DBD90255CF18700EAFD3B /* NoteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889DBD8F255CF18700EAFD3B /* NoteViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		889DBD7B255C163600EAFD3B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		889DBD83255C19F100EAFD3B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		889DBD87255CCE9600EAFD3B /* NoteSenderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSenderDelegate.swift; sourceTree = "<group>"; };
+		889DBD8F255CF18700EAFD3B /* NoteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +67,9 @@
 				889DBD7E255C16C300EAFD3B /* Model */,
 				889DBD80255C16CD00EAFD3B /* Controller */,
 				889DBD8A255CCE9F00EAFD3B /* Protocol */,
-				889DBD67255C0AD600EAFD3B /* Main.storyboard */,
+				889DBD92255CF18B00EAFD3B /* View */,
 				889DBD6A255C0AD700EAFD3B /* Assets.xcassets */,
+				889DBD67255C0AD600EAFD3B /* Main.storyboard */,
 				889DBD6F255C0AD700EAFD3B /* Info.plist */,
 				889DBD6C255C0AD700EAFD3B /* LaunchScreen.storyboard */,
 				889DBD61255C0AD600EAFD3B /* AppDelegate.swift */,
@@ -98,6 +101,14 @@
 				889DBD87255CCE9600EAFD3B /* NoteSenderDelegate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		889DBD92255CF18B00EAFD3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				889DBD8F255CF18700EAFD3B /* NoteViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				889DBD79255C0BA500EAFD3B /* MainViewController.swift in Sources */,
 				889DBD62255C0AD600EAFD3B /* AppDelegate.swift in Sources */,
 				889DBD64255C0AD600EAFD3B /* SceneDelegate.swift in Sources */,
+				889DBD90255CF18700EAFD3B /* NoteViewCell.swift in Sources */,
 				889DBD7C255C163600EAFD3B /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

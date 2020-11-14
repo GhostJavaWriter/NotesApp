@@ -7,9 +7,17 @@
 
 import Foundation
 
-struct Note: Codable {
+class Note: Codable {
     
     var title: String
     var body: String
     var date: Date
+
+    init (title: String, body: String, date: Date) {
+        
+        self.title = title
+        self.body = body
+        self.date = date
+    }
 }
+
