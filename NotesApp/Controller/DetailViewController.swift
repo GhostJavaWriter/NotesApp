@@ -23,15 +23,16 @@ class DetailViewController: UIViewController {
         //change this button later to instant save when user type or change a note
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveNote))
         
+        let share = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareNote))
+        let notesCountText = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: .none)
+        
+        toolbarItems = [notesCountText, share]
+        
         configureTextView()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardDidHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardDidShowNotification, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isToolbarHidden = true
     }
     
     // MARK: - Configigure text view
@@ -78,7 +79,15 @@ class DetailViewController: UIViewController {
             noteSenderDelegate?.newNote(note: newNote)
         }
         
+    }
+    
+    @objc func shareNote() {
         
+        guard let note = textView.text else { return }
+        
+        let vc = UIActivityViewController(activityItems: [note], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
     
     @objc func showKeyboard() {
