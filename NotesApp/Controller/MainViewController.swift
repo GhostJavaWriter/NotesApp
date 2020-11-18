@@ -61,7 +61,6 @@ class MainViewController: UITableViewController {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: notes, requiringSecureCoding: false)
             try data.write(to: fullPath)
-            print("saved")
         } catch {
             print("writing fail")
         }
