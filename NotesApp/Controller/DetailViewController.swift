@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
     func configureTextView() {
         
         if let note = currentNote {
-            textView.text = note.body
+            textView.text = note.text
         } else {
             textView.text = ""
         }
@@ -63,23 +63,21 @@ class DetailViewController: UIViewController {
         
         //dismiss keyboard
         
-        //setup title
+        guard let text = textView.text else { return }
         
-        //save note and send data to main controller
-        guard let body = textView.text else { return }
-        
-        
-        let title = "new note"
         let date = Date()
-        let newNote = Note(title: title, body: body, date: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let currentTime = dateFormatter.string(from: date)
         
         if let index = noteIndex {
             
-            noteSenderDelegate?.updateNote(note: newNote, at: index)
+            noteSenderDelegate?.updateNote(text: text, date: currentTime, at: index)
         } else {
-            
+            let newNote = Note(text: text, date: currentTime)
             noteSenderDelegate?.newNote(note: newNote)
         }
+        
         
     }
     

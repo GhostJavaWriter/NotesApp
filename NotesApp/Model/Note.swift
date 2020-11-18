@@ -7,17 +7,26 @@
 
 import Foundation
 
-class Note: Codable {
+class Note: NSObject, NSCoding {
     
-    var title: String
-    var body: String
-    var date: Date
+    var text: String
+    var date: String
 
-    init (title: String, body: String, date: Date) {
+    init (text: String, date: String) {
         
-        self.title = title
-        self.body = body
+        self.text = text
         self.date = date
     }
+    
+    required init?(coder: NSCoder) {
+        text = coder.decodeObject(forKey: "text") as? String ?? ""
+        date = coder.decodeObject(forKey: "date") as? String ?? ""
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(text, forKey: "text")
+        coder.encode(date, forKey: "date")
+    }
+    
 }
 

@@ -11,5 +11,5 @@ protocol NoteSenderDelegate: class {
     
     func newNote(note: Note)
     
-    func updateNote(note: Note, at index: Int)
+    func updateNote(text: String, date: String, at index: Int)
 }

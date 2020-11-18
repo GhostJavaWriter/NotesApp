@@ -17,8 +17,10 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadNotes()
+        
         tableView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-
+        
         configureNavigationController()
 
     }
@@ -51,8 +53,34 @@ class MainViewController: UITableViewController {
         
     }
     
-    // MARK: - Actions
+    // MARK: - Support
     
+    func saveNotes() {
+        let fileName = "notes"
+        let fullPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: notes, requiringSecureCoding: false)
+            try data.write(to: fullPath)
+            print("saved")
+        } catch {
+            print("writing fail")
+        }
+        
+    }
+    
+    func loadNotes() {
+        let fileName = "notes"
+        let fullPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+        do {
+            
+            let data = try Data(contentsOf: fullPath)
+            if let loadedNotes = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Note] {
+                notes = loadedNotes
+            }
+        } catch {
+            print("reading fail")
+        }
+    }
     
 
     // MARK: - Table view data source
@@ -65,10 +93,10 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        let title = notes[indexPath.row].title
-        let text = notes[indexPath.row].body
+        let title = notes[indexPath.row].text
+        let subtitle = notes[indexPath.row].date
         cell.textLabel?.text = title
-        cell.detailTextLabel?.text = text
+        cell.detailTextLabel?.text = subtitle
         cell.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         
         return cell
@@ -130,12 +158,15 @@ extension MainViewController: NoteSenderDelegate {
     func newNote(note: Note) {
 
         notes.append(note)
+        saveNotes()
         tableView.reloadData()
     }
     
-    func updateNote(note: Note, at index: Int) {
+    func updateNote(text: String, date: String, at index: Int) {
         
-        notes[index] = note
+        notes[index].text = text
+        notes[index].date = date
+        saveNotes()
         tableView.reloadData()
     }
     
