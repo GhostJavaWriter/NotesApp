@@ -45,6 +45,10 @@ class DetailViewController: UIViewController {
             textView.text = ""
         }
         
+        //show keyboard
+        textView.becomeFirstResponder()
+        
+        textView.font = UIFont(name: "arial", size: 18)
         textView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         textView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(textView)
@@ -63,6 +67,7 @@ class DetailViewController: UIViewController {
     @objc func saveNote() {
         
         //dismiss keyboard
+        textView.endEditing(true)
         
         guard let text = textView.text else { return }
         
